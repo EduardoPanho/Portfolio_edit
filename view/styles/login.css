@@ -1,0 +1,13 @@
+body {
+    justify-content: center;
+    align-items: center;
+}
+
+#login_back {
+    height: 8vh;
+    width: 10vw;
+    background-color: rgb(177, 177, 177);
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5vh;
+}
