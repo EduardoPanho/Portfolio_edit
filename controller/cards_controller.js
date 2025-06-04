@@ -1,7 +1,8 @@
 import { createCards } from "../view/js/create_cards.js";
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
     createCards();
+    
 });
 
 function animateAndReload(button) {
@@ -15,7 +16,6 @@ function animateAndReload(button) {
     });
 }
 
-// ---------- FORMULÁRIO DE ADIÇÃO ----------
 document.getElementById('adicionar').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -30,13 +30,13 @@ document.getElementById('adicionar').addEventListener('submit', async (event) =>
     }
 
     const projeto = {
-        name: name_create,
-        date: date_create,
+        titulo: name_create,
+        data: date_create,
         img: img_create
     };
 
     try {
-        const response = await fetch('/projetos', {
+        const response = await fetch('http://localhost:3000/projetos', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(projeto)
@@ -51,7 +51,6 @@ document.getElementById('adicionar').addEventListener('submit', async (event) =>
     }
 });
 
-// ---------- FORMULÁRIO DE DELEÇÃO ----------
 document.getElementById('deletar').addEventListener('submit', async (event) => {
     event.preventDefault();
 
@@ -64,7 +63,7 @@ document.getElementById('deletar').addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await fetch(`/projetos/${id_delete}`, {
+        const response = await fetch(`http://localhost:3000/projetos/${id_delete}`, {
             method: 'DELETE'
         });
 
@@ -78,29 +77,28 @@ document.getElementById('deletar').addEventListener('submit', async (event) => {
     }
 });
 
-// ---------- FORMULÁRIO DE ATUALIZAÇÃO ----------
+
 document.getElementById('atualizar').addEventListener('submit', async (event) => {
     event.preventDefault();
 
     const id_att = document.getElementById('id_att').value.trim();
-    const name_att = document.getElementById('name_att').value.trim();
-    const date_att = document.getElementById('date_att').value;
+    const date_att = document.getElementById('date_att').value.trim();
     const img_att = document.getElementById('img_att').value.trim();
     const button = event.target.querySelector('button');
 
-    if (!id_att || !name_att || !date_att || !img_att) {
+    if (!id_att || !date_att || !img_att) {
         alert("Erro! Todos os campos devem ser preenchidos.");
         return;
     }
 
     const dadosAtualizados = {
-        name: name_att,
-        date: date_att,
+        id: id_att,
+        data: date_att,
         img: img_att
     };
 
     try {
-        const response = await fetch(`/projetos/${id_att}`, {
+        const response = await fetch(`http://localhost:3000/projetos/${id_att}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dadosAtualizados)
@@ -109,9 +107,24 @@ document.getElementById('atualizar').addEventListener('submit', async (event) =>
         if (!response.ok) throw new Error(await response.text());
 
         alert('Projeto atualizado com sucesso!');
-        animateAndReload(button);
+        animateAndReload(button); //
     } catch (err) {
         console.error(err);
         alert('Erro ao atualizar projeto: ' + err.message);
     }
 });
+
+function handleButtonAnimation(button) {
+    const defaultState = button.querySelector(".state--default");
+    const sentState = button.querySelector(".state--sent");
+
+    // Ativa o estado enviado
+    defaultState.style.display = "none";
+    sentState.style.display = "flex";
+
+    // Retorna para o estado padrão após 2 segundos
+    setTimeout(() => {
+        sentState.style.display = "none";
+        defaultState.style.display = "flex";
+    }, 2000);
+}

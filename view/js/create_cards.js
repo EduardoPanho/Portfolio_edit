@@ -28,7 +28,7 @@ export async function createCards() {
         card.appendChild(img);
         card.appendChild(titulo);
         card.appendChild(data);
-        card.appendChild(button);
+
 
         cards_section.appendChild(card);
     });
