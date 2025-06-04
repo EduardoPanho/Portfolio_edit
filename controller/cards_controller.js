@@ -122,7 +122,6 @@ function handleButtonAnimation(button) {
     defaultState.style.display = "none";
     sentState.style.display = "flex";
 
-    // Retorna para o estado padrão após 2 segundos
     setTimeout(() => {
         sentState.style.display = "none";
         defaultState.style.display = "flex";
