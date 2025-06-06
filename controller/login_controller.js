@@ -3,7 +3,7 @@ document.getElementById('password_form').addEventListener('submit', (event)=>{
     const password = document.getElementById('password').value
 
     if(password == '12345678'){
-        window.location.href = './cards.html'
+        window.location.href = './../pages/cards.html'
     }else{
         alert('Erro')
     }
