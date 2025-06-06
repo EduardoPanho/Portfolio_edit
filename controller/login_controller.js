@@ -1,10 +1,12 @@
-document.getElementById('password_form').addEventListener('submit', (event)=>{
-    event.preventDefault()
-    const password = document.getElementById('password').value
+document.getElementById('login-form').addEventListener('submit', (event) => {
+    event.preventDefault();
 
-    if(password == '12345678'){
-        window.location.href = './../pages/cards.html'
-    }else{
-        alert('Erro')
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === 'eumesmo' && password === 'Jblestragada1') {
+        window.location.href = './../cards.html';
+    } else {
+        alert('Usuário ou senha incorretos');
     }
 });
