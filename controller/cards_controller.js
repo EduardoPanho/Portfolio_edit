@@ -36,7 +36,7 @@ document.getElementById('adicionar').addEventListener('submit', async (event) =>
     };
 
     try {
-        const response = await fetch('http://localhost:3000/projetos', {
+        const response = await fetch('https://back-end-teal-rho.vercel.app/', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(projeto)
@@ -63,7 +63,7 @@ document.getElementById('deletar').addEventListener('submit', async (event) => {
     }
 
     try {
-        const response = await fetch(`http://localhost:3000/projetos/${id_delete}`, {
+        const response = await fetch(`https://back-end-teal-rho.vercel.app//${id_delete}`, {
             method: 'DELETE'
         });
 
@@ -98,7 +98,7 @@ document.getElementById('atualizar').addEventListener('submit', async (event) =>
     };
 
     try {
-        const response = await fetch(`http://localhost:3000/projetos/${id_att}`, {
+        const response = await fetch(`https://back-end-teal-rho.vercel.app//${id_att}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(dadosAtualizados)
