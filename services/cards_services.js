@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000/projetos';
+const API_URL = `${process.env.NEXT_PUBLIC_API_URL}/projetos`;
 
 // 🔹 GET – Buscar todos os projetos
 export async function getBdCardsProjects() {
@@ -53,7 +53,7 @@ export async function putBdCardsProjects(id, titulo, data, img) {
 // DELETE – Deletar projeto pelo ID
 export async function deleteBdCardsProjects(id) {
   try {
-    const response = await fetch(`http://localhost:3000/projetos/${id}`, {
+    const response = await fetch(`${API_URL}/${id}`, {
       method: 'DELETE'
     });
 
