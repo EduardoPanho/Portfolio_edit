@@ -1,4 +1,4 @@
-const API_URL = "https://back-end-teal-rho.vercel.app/";
+const API_URL = "https://back-end-teal-rho.vercel.app";
 
 // 🔹 GET – Buscar todos os projetos
 export async function getBdCardsProjects() {
