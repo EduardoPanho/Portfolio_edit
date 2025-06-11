@@ -13,7 +13,6 @@ export async function getBdCardsProjects() {
   }
 }
 
-// 🔹 POST – Criar novo projeto
 export async function postBdCardsProjects(titulo, data, img) {
   try {
     const response = await fetch(API_URL, {
@@ -50,7 +49,7 @@ export async function putBdCardsProjects(id, titulo, data, img) {
   }
 }
 
-// DELETE – Deletar projeto pelo ID
+
 export async function deleteBdCardsProjects(id) {
   try {
     const response = await fetch(`${API_URL}/${id}`, {
