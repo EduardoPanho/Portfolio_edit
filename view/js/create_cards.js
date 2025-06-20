@@ -12,14 +12,21 @@ export async function createCards() {
 
         let img = document.createElement('img');
         img.src = card_bd.img;
+
         let titulo = document.createElement('h1');
         titulo.textContent = card_bd.titulo;
+
         let data = document.createElement('h3');
         data.textContent = card_bd.data;
 
+        let att = document.createElement("button");
+        att.className = 'att_button';
+        att.innerHTML = '<i class="fas fa-edit"></i>';
+
         let button = document.createElement('button');
         button.className = 'del_button';
-        button.addEventListener('click', async ()=>{
+
+        button.addEventListener('click', async () => {
             console.log(card_bd.id)
             await deleteBdCardsProjects(card_bd.id);
             createCards();
@@ -28,7 +35,8 @@ export async function createCards() {
         card.appendChild(img);
         card.appendChild(titulo);
         card.appendChild(data);
-
+        card.appendChild(button);
+        card.appendChild(att);
 
         cards_section.appendChild(card);
     });
