@@ -118,7 +118,6 @@ function handleButtonAnimation(button) {
     const defaultState = button.querySelector(".state--default");
     const sentState = button.querySelector(".state--sent");
 
-    // Ativa o estado enviado
     defaultState.style.display = "none";
     sentState.style.display = "flex";
 

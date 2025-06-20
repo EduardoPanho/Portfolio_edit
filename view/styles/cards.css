@@ -124,12 +124,13 @@ body {
 }
 
 .del_button {
-    position: relative;
+    position: absolute;
+    top: 34.2vh;
     background-color: #ff0101;
     border: none;
     border-radius: 20px;
     width: 7vw;
-    height: 1vh;
+    height: 2vh;
     cursor: pointer;
     box-shadow:
         inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),

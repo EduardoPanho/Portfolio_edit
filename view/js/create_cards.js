@@ -23,13 +23,18 @@ export async function createCards() {
         att.className = 'att_button';
         att.innerHTML = '<i class="fas fa-edit"></i>';
 
+
         let button = document.createElement('button');
         button.className = 'del_button';
 
         button.addEventListener('click', async () => {
-            console.log(card_bd.id)
-            await deleteBdCardsProjects(card_bd.id);
-            createCards();
+            try {
+                await deleteBdCardsProjects(card_bd.id);
+                card.remove();
+                alert('Projeto deletado com sucesso!');
+            } catch (e) {
+                alert('Erro ao deletar projeto: ' + e.message);
+            }
         });
 
         card.appendChild(img);
