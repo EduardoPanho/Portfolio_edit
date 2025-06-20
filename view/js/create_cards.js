@@ -2,9 +2,11 @@ import { getBdCardsProjects, deleteBdCardsProjects } from "../../services/cards_
 
 export async function createCards() {
     let cards_section = document.getElementById('cards');
+
     cards_section.innerHTML = '';
 
     const bd_cards_projetos = await getBdCardsProjects();
+    console.log(bd_cards_projetos)
 
     bd_cards_projetos.map((card_bd, index) => {
         let card = document.createElement('div');
@@ -19,29 +21,28 @@ export async function createCards() {
         let data = document.createElement('h3');
         data.textContent = card_bd.data;
 
-        let att = document.createElement("button");
-        att.className = 'att_button';
-        att.innerHTML = '<i class="fas fa-edit"></i>';
-
-
         let button = document.createElement('button');
         button.className = 'del_button';
 
         button.addEventListener('click', async () => {
-            try {
-                await deleteBdCardsProjects(card_bd.id);
-                card.remove();
-                alert('Projeto deletado com sucesso!');
-            } catch (e) {
-                alert('Erro ao deletar projeto: ' + e.message);
-            }
+            console.log(card_bd.uid)
+            deleteBdCardsProjects(card_bd.uid)
+            createCards();
         });
+
+        let buttonEdit = document.createElement('button');
+        buttonEdit.className = 'edit_button';
+        buttonEdit.innerHTML = '<i class="fas fa-edit"></i>';
+        buttonEdit.addEventListener('click', async () => {
+            let input = document.getElementById('id_att');
+            input.value = card_bd.uid
+        })
 
         card.appendChild(img);
         card.appendChild(titulo);
         card.appendChild(data);
         card.appendChild(button);
-        card.appendChild(att);
+        card.appendChild(buttonEdit);
 
         cards_section.appendChild(card);
     });

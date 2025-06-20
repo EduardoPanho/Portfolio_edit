@@ -103,7 +103,7 @@ body {
     background: linear-gradient(43deg, rgb(255, 204, 112), rgb(200, 80, 192) 46%, rgb(65, 88, 208) 100%);
 }
 
-.att_button {
+.edit_button {
     position: absolute;
     top: 1vh;
     left: 20.3vh;
@@ -115,11 +115,11 @@ body {
     cursor: pointer;
 }
 
-.att_button:hover {
+.edit_button:hover {
     transform: scale(1.05, 1.1);
 }
 
-.att_button {
+.edit_button {
     transition: all ease-in-out 0.1s;
 }
 

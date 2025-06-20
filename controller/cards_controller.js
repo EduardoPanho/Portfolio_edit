@@ -2,7 +2,7 @@ import { createCards } from "../view/js/create_cards.js";
 
 document.addEventListener('DOMContentLoaded', () => {
     createCards();
-    
+
 });
 
 function animateAndReload(button) {
@@ -51,29 +51,13 @@ document.getElementById('adicionar').addEventListener('submit', async (event) =>
     }
 });
 
-document.getElementById('deletar').addEventListener('submit', async (event) => {
-    event.preventDefault();
-
-    const id_delete = document.getElementById('id_delete').value.trim();
-    const button = event.target.querySelector('button');
-
-    if (!id_delete) {
-        alert("Erro! Informe o ID.");
-        return;
-    }
-
+button.addEventListener('click', async () => {
     try {
-        const response = await fetch(`https://back-end-teal-rho.vercel.app/${id_delete}`, {
-            method: 'DELETE'
-        });
-
-        if (!response.ok) throw new Error(await response.text());
-
+        await deleteBdCardsProjects(card_bd.id);
         alert('Projeto deletado com sucesso!');
-        animateAndReload(button);
-    } catch (err) {
-        console.error(err);
-        alert('Erro ao deletar projeto: ' + err.message);
+        location.reload(); // 🔄 recarrega imediatamente
+    } catch (e) {
+        alert('Erro ao deletar projeto: ' + e.message);
     }
 });
 
