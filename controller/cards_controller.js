@@ -51,15 +51,6 @@ document.getElementById('adicionar').addEventListener('submit', async (event) =>
     }
 });
 
-button.addEventListener('click', async () => {
-    try {
-        await deleteBdCardsProjects(card_bd.id);
-        alert('Projeto deletado com sucesso!');
-        location.reload(); // 🔄 recarrega imediatamente
-    } catch (e) {
-        alert('Erro ao deletar projeto: ' + e.message);
-    }
-});
 
 
 document.getElementById('atualizar').addEventListener('submit', async (event) => {
