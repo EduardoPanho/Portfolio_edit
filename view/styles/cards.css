@@ -2,6 +2,14 @@ body {
     margin: 0;
     overflow-x: hidden;
     padding-top: 15vh;
+    background-image: url(./bg.png);
+    margin: 0;
+    padding: 0;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #cards {
@@ -30,12 +38,6 @@ body {
     position: relative;
     background-size: cover;
     background-position: center;
-    box-shadow:
-        inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
-        inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
-        inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
-        0 3rem 3rem rgba(0, 0, 0, 0.3),
-        0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
 }
 
 .card_bd.titulo h1 {
@@ -82,7 +84,7 @@ body {
 #scroll_cards {
     width: 85vw;
     margin: 7vh auto 0;
-    border-radius: 2vh;
+    border-radius: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -153,13 +155,19 @@ body {
 #add_cards,
 #remove_cards,
 #update_cards,
-.att_button {
+.att_button,
+.form input,
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(8px);
+
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
     box-shadow:
-        inset 0 0.3rem 0.9rem rgba(255, 255, 255, 0.3),
-        inset 0 -0.1rem 0.3rem rgba(0, 0, 0, 0.7),
-        inset 0 -0.4rem 0.9rem rgba(255, 255, 255, 0.5),
-        0 3rem 3rem rgba(0, 0, 0, 0.3),
-        0 1rem 1rem -0.6rem rgba(0, 0, 0, 0.8);
+        inset 0 1px 0px rgba(255, 255, 255, 0.818),
+        inset 0 -2px 0px rgba(255, 255, 255, 0.262),
+        0 4px 20px rgba(255, 255, 255, 0.178);
 }
 
 #add_cards,
@@ -173,8 +181,7 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    border-radius: 2vh;
-    background: white center/cover no-repeat;
+    border-radius: 40px;
     color: black;
     position: relative;
 }
@@ -204,6 +211,7 @@ body {
     font-family: "Akatab", sans-serif;
     font-weight: 800;
     font-style: normal;
+    color: white;
 }
 
 .card h3 {
@@ -213,7 +221,7 @@ body {
     left: 20px;
     margin: 0;
     color: white;
-    text-shadow: 4px 4px 10px rgba(0, 0, 0, 1);
+    text-shadow: 4px 4px 10px rgb(255, 255, 255);
 }
 
 .form {
@@ -228,7 +236,7 @@ body {
 .form label {
     font-weight: bold;
     font-size: 0.95rem;
-    color: #333;
+    color: #ffffff;
     font-family: "Akatab", sans-serif;
     font-weight: 800;
     font-style: normal;
