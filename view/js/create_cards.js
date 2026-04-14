@@ -22,6 +22,7 @@ export async function createCards() {
         data.textContent = card_bd.data;
 
         let button = document.createElement('button');
+        button.innerHTML = '<i class="fa-solid fa-trash"></i>';
         button.className = 'del_button';
 
         button.addEventListener('click', async () => {

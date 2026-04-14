@@ -1,6 +1,5 @@
 const API_URL = "https://back-end-teal-rho.vercel.app";
 
-// 🔹 GET – Buscar todos os projetos
 export async function getBdCardsProjects() {
   try {
     const response = await fetch(API_URL);
@@ -13,7 +12,6 @@ export async function getBdCardsProjects() {
   }
 }
 
-// 🔹 POST – Criar novo projeto
 export async function postBdCardsProjects(titulo, data, img) {
   try {
     const response = await fetch(API_URL, {
@@ -31,7 +29,6 @@ export async function postBdCardsProjects(titulo, data, img) {
   }
 }
 
-// 🔹 PUT – Atualizar projeto pelo ID
 export async function putBdCardsProjects(id, titulo, data, img) {
   try {
     const response = await fetch(`${API_URL}/${id}`, {
@@ -49,7 +46,6 @@ export async function putBdCardsProjects(id, titulo, data, img) {
   }
 }
 
-// 🔹 DELETE – Deletar projeto pelo ID
 export async function deleteBdCardsProjects(id) {
   try {
     const response = await fetch(`${API_URL}/${id}`, {
